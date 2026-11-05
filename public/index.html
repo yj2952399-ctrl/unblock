@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kage Proxy</title>
+  <meta name="referrer" content="no-referrer" />
+  <title>Kage</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
@@ -14,6 +15,11 @@
       <button type="button" id="reload" title="再読み込み">⟳</button>
       <input id="addr" type="text" spellcheck="false"
              placeholder="example.com または https://example.com" />
+      <select id="mode" title="表示モード">
+        <option value="p">通常</option>
+        <option value="l">軽量</option>
+        <option value="t">テキスト</option>
+      </select>
       <button type="submit">移動</button>
     </form>
     <div id="progress"></div>
@@ -21,18 +27,18 @@
 
   <main>
     <section id="home">
-      <h1>Kage Proxy</h1>
-      <p>URL を入れて移動。HTML と CSS はサーバー側で書き換えて中継します。</p>
+      <h1>Kage</h1>
+      <p>URL を入れて移動。重いときは「軽量」か「テキスト」に切り替え。</p>
       <div class="links">
         <button data-url="https://example.com">example.com</button>
         <button data-url="https://ja.wikipedia.org">Wikipedia</button>
-        <button data-url="https://news.ycombinator.com">Hacker News</button>
         <button data-url="https://lite.duckduckgo.com/lite/">DuckDuckGo</button>
+        <button data-url="https://news.ycombinator.com">Hacker News</button>
         <button data-url="https://text.npr.org">NPR Text</button>
         <button data-url="https://old.reddit.com">old.reddit</button>
       </div>
     </section>
-    <iframe id="frame" title="proxy view"
+    <iframe id="frame" title="view"
       sandbox="allow-scripts allow-same-origin allow-forms allow-popups
                allow-modals allow-downloads allow-top-navigation-by-user-activation"
       referrerpolicy="no-referrer"></iframe>
