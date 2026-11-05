@@ -5,8 +5,15 @@
 [functions]
   node_bundler = "esbuild"
 
+[functions.proxy]
+  region = "ap-northeast-1"   # 東京。無料枠は us-east-1 固定なので Pro 以上で有効
+
 [[headers]]
-  for = "/*"
+  for = "/app.js"
   [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    Referrer-Policy = "no-referrer"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
