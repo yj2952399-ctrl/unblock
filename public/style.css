@@ -1,0 +1,130 @@
+:root {
+  --bg: #0d0f12;
+  --panel: #16191f;
+  --line: #262b33;
+  --text: #e6e9ef;
+  --dim: #8b93a1;
+  --accent: #5b9dff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font: 14px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+}
+
+#nav {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  align-items: center;
+}
+
+#nav button {
+  background: #1f242c;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#nav button:hover { background: #2a3038; }
+
+#addr {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #10131a;
+  color: var(--text);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-size: 13px;
+}
+
+#addr:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+#progress {
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  transition: width 0.25s ease, opacity 0.4s ease;
+}
+
+#progress.on { width: 70%; opacity: 1; }
+#progress.done { width: 100%; opacity: 0; }
+
+main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+#home {
+  margin: auto;
+  padding: 32px;
+  max-width: 640px;
+  text-align: center;
+}
+
+#home h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: 0.02em;
+}
+
+#home p {
+  color: var(--dim);
+  margin: 0 0 24px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.links button {
+  background: #1a1f27;
+  border: 1px solid var(--line);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.links button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+#frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #fff;
+  display: none;
+}
+
+body.browsing #frame { display: block; }
+body.browsing #home { display: none; }
